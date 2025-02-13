@@ -31,7 +31,7 @@ int main()
 		if(z==0)
 		printf("Element not found in the array\n");
 		z=0;
-		count=0;
+		count=1;
 	}
 	return 0;
 }
