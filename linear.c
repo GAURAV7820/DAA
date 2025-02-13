@@ -2,7 +2,7 @@
 int main()
 {
 	int left=0,right,n,size,a[10],key,count=1,z=0,i,j;
-	printf("Enter how many times yow ant to enter array\n");
+	printf("Enter how many times yow want to enter array\n");
 	scanf ("%d",&size);
 	for(j=0;j<size;j++)
 	{
