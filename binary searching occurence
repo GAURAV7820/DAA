@@ -1,0 +1,54 @@
+//week 2 question 1.
+#include<stdio.h>
+int binarysearch(int arr[],int low ,int high,int key)
+{
+	int count=0;
+	if(low>high)
+		return -1;
+	else
+	{
+		 int mid=low+(high-low)/2;
+		if(arr[mid]==key)
+		{
+			count++;
+			int left=mid-1;
+			int right=mid+1;
+			while(arr[left]==key)
+			{
+				count++;
+				left--;
+			}
+			while(arr[right]==key)
+			{
+				count++;
+				right++;
+			}
+			
+		}
+		else if(arr[mid]>key)
+			return binarysearch(arr,low,mid-1,key);
+		else
+			return binarysearch(arr,mid+1,high,key);
+		return count;
+	}
+	return -1;
+}
+		
+			
+int main()
+{
+	int arr[]={10,10,20,30,40,40,40,50,60};
+	int n=sizeof(arr)/sizeof(arr[0]);
+	int key;
+	printf("Enter the key you want to search\n");
+	scanf("%d",&key);
+	int result=binarysearch(arr,0,n-1,key);
+	if(result!=-1)
+	{
+		printf("Element found in the array\n");
+		printf("Occurence of the array is %d\n",result);
+	}
+	else
+		printf("Element not found\n");
+	return 0;
+}
