@@ -5,38 +5,43 @@ void sort(int arr[],int n)
     int temp,min,i,j,comp=0,swap=0;
     for(i=0;i<n-1;i++)
     {
-            min=i;
             temp=arr[i];
+            min=i;
         for(j=i+1;j<n;j++)
         {
             comp++;
             if(arr[min]>arr[j])
-            {
-
-                swap++;   
+            {  
                 min=j;
             }
         }
-        arr[i]=arr[min];
-        arr[min]=temp;
+        if(min!=i)
+        {
+            arr[i]=arr[min];
+            arr[min]=temp;
+            swap++; 
+        }
     }
     for(i=0;i<n;i++)
     {
         printf("%d ",arr[i]);
     }
-    printf("\nswap is %d and comparison is %d",swap,comp);
+    printf("\nswap is %d and comparison is %d\n",swap,comp);
 }
 int main()
 {
     int arr[max],test,n,i;
     printf("Enter the number of test cases\n");
     scanf("%d",&test);
-    printf("Enter the array limit\n");
-    scanf("%d",&n);
-    printf("Enter the array elements\n");
-    for(i=0;i<n;i++)
+    for(int j=0;j<test;j++)
     {
-        scanf("%d",&arr[i]);
+        printf("Enter the array limit\n");
+        scanf("%d",&n);
+        printf("Enter the array elements\n");
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        sort(arr,n);
     }
-    sort(arr,n);
 }
